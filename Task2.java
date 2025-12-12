@@ -1,54 +1,62 @@
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Scanner;
+
 public class Task2 {
-    public static void sortArray(int[] arr){
+
+    // Method to sort the array
+    public static void sortArray(int[] arr) {
         Arrays.sort(arr);
-        System.out.println("Sorted array:"+Arrays.toString(arr));
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+
+        // 🔥 Small change added for sorting-logic branch
+        System.out.println("This is the sorting-logic branch update.");
     }
-    public static int findmin(int[] arr){
+
+    // Method to find minimum value
+    public static int findMin(int[] arr) {
         int min = arr[0];
-        for(int num : arr){
-            if(num < min){
+        for (int num : arr) {
+            if (num < min) {
                 min = num;
             }
         }
-            return min;
-     }
-    public static int findmax(int[] arr){
+        return min;
+    }
+
+    // Method to find maximum value
+    public static int findMax(int[] arr) {
         int max = arr[0];
-        for(int num : arr){
-            if(num > max){
+        for (int num : arr) {
+            if (num > max) {
                 max = num;
             }
         }
-            return max;
+        return max;
     }
-    public static int calculatesum(int[] arr){
-        int sum = 0;
-        for(int num : arr){
-            sum += num;
-        }
-        return sum;
-    }
-    public static double average(int[] arr){
-        return(double) calculatesum(arr) / arr.length;
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int[] numbers = new int[5];
-        System.out.println("Enter 5 numbers:");
-        for(int i = 0;i<5;i++){
-            numbers[i] = sc.nextInt();
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] numbers = new int[5];
+
+        System.out.println("Enter 5 numbers:");
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            numbers[i] = scanner.nextInt();
         }
-        System.out.println("\n---ARRAY OPERATIONS---");
+
+        System.out.println("\nOriginal Array: " + Arrays.toString(numbers));
+
+        // Calling methods
         sortArray(numbers);
-        System.out.println("Minimum:" +findmin(numbers));
-        System.out.println("Maximum:" +findmax(numbers));
-        System.out.println("Sum:" +calculatesum(numbers));
-        System.out.println("Average:" +average(numbers));
-        sc.close();
-        
+
+        int min = findMin(numbers);
+        int max = findMax(numbers);
+
+        System.out.println("Minimum value: " + min);
+        System.out.println("Maximum value: " + max);
+
+        scanner.close();
     }
- }
-    
+}
