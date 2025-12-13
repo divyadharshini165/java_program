@@ -7,13 +7,11 @@ public class Task2 {
     public static void sortArray(int[] arr) {
         Arrays.sort(arr);
         System.out.println("Sorted Array: " + Arrays.toString(arr));
-
-        // 🔥 Small change added for sorting-logic branch
-        System.out.println("This is the sorting-logic branch update.");
     }
 
     // Method to find minimum value
     public static int findMin(int[] arr) {
+        System.out.println("Finding minimum value (array-operations branch)");
         int min = arr[0];
         for (int num : arr) {
             if (num < min) {
@@ -25,6 +23,7 @@ public class Task2 {
 
     // Method to find maximum value
     public static int findMax(int[] arr) {
+        System.out.println("Finding maximum value (array-operations branch)");
         int max = arr[0];
         for (int num : arr) {
             if (num > max) {
@@ -34,9 +33,19 @@ public class Task2 {
         return max;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    // Method to calculate sum
+    public static int calculateSum(int[] arr) {
+        System.out.println("Calculating sum (array-operations branch)");
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        return sum;
+    }
 
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
         int[] numbers = new int[5];
 
         System.out.println("Enter 5 numbers:");
@@ -48,14 +57,17 @@ public class Task2 {
 
         System.out.println("\nOriginal Array: " + Arrays.toString(numbers));
 
-        // Calling methods
         sortArray(numbers);
 
         int min = findMin(numbers);
         int max = findMax(numbers);
+        int sum = calculateSum(numbers);
+        double average = (double) sum / numbers.length;
 
         System.out.println("Minimum value: " + min);
         System.out.println("Maximum value: " + max);
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + average);
 
         scanner.close();
     }
